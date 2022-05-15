@@ -77,9 +77,9 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/multi-worker:latest
 
-      # - 
-      #   name: Generate deployment package
-      #   run: zip -r deploy.zip . -x '*.git*'
+      - 
+        name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v20
@@ -90,3 +90,5 @@ jobs:
           environment_name: Multidocker-env
           existing_bucket_name: elasticbeanstalk:us-east-1:988335325762
           region: us-east-1
+          version_label: ${{ github.sha }}
+          deployment_package: deploy.zip
