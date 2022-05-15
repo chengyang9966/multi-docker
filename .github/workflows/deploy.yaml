@@ -90,4 +90,3 @@ jobs:
           environment_name: Multidocker-env
           existing_bucket_name: elasticbeanstalk:us-east-1:988335325762
           region: us-east-1
-          version_label: ${{ github.sha }}
