@@ -1,4 +1,4 @@
-name: Deploy Frontend
+name: CI Actions
 on:
   push:
     branches:
@@ -14,10 +14,10 @@ jobs:
       - 
         name: Setup Node 
         uses: actions/setup-node@v2
-        working-directory: ./client
         with:
           node-version: '16'
           cache: 'npm'
+          cache-dependency-path: client/package-lock.json
       - 
         name: NPM install 
         working-directory: ./client
